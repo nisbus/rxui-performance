@@ -17,15 +17,18 @@ namespace RXUIPerformance
             set { this.RaiseAndSetIfChanged(ref _RXSetter, value); }
         }
 
-        private int _OldSetter = 0;
-        public int OldSetter
-        {
-            get { return _OldSetter; }
-            set { this.RaiseAndSetIfChanged(x => x.OldSetter, value); }
-        }
+        /// <summary>
+        /// Not applicable anymore
+        /// </summary>
+        //private int _OldSetter = 0;
+        //public int OldSetter
+        //{
+        //    get { return _OldSetter; }
+        //    set { this.RaiseAndSetIfChanged(x => x.OldSetter, value); }
+        //}
     }
 
-    public class PlainWPFWithAttachedPropertyChangeEvents : INotifyPropertyChanged, INotifyPropertyChanging
+    public class PlainWPFWithAttachedPropertyChangeEvents : INotifyPropertyChanged, System.ComponentModel.INotifyPropertyChanging
     {        
         private int _NotifySetter = 0;
         public int NotifySetter
@@ -46,7 +49,7 @@ namespace RXUIPerformance
             set 
             {
                 if (PropertyChanging != null)
-                    PropertyChanging(this, new PropertyChangingEventArgs("ChangingAndChangedSetter"));
+                    PropertyChanging(this, new System.ComponentModel.PropertyChangingEventArgs("ChangingAndChangedSetter"));
                 _ChangingAndChangedSetter = value;
                 if(PropertyChanged != null)
                     PropertyChanged(this, new PropertyChangedEventArgs("ChangingAndChangedSetter"));
@@ -54,10 +57,10 @@ namespace RXUIPerformance
         }
 
         public event PropertyChangedEventHandler PropertyChanged = (_, __) => { };
-        public event PropertyChangingEventHandler PropertyChanging = (_, __) => { };
+        public event System.ComponentModel.PropertyChangingEventHandler PropertyChanging = (_, __) => { };
     }
 
-    public class PlainWPFWithoutAttachedPropertyChangeEvents : INotifyPropertyChanged, INotifyPropertyChanging
+    public class PlainWPFWithoutAttachedPropertyChangeEvents : INotifyPropertyChanged, System.ComponentModel.INotifyPropertyChanging
     {
         private int _NotifySetter = 0;
         public int NotifySetter
@@ -78,15 +81,15 @@ namespace RXUIPerformance
             set
             {
                 if (PropertyChanging != null)
-                    PropertyChanging(this, new PropertyChangingEventArgs("ChangingAndChangedSetter"));
+                    PropertyChanging(this, new System.ComponentModel.PropertyChangingEventArgs("ChangingAndChangedSetter"));
                 _ChangingAndChangedSetter = value;
                 if (PropertyChanged != null)
-                    PropertyChanged(this, new PropertyChangedEventArgs("ChangingAndChangedSetter"));
+                    PropertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs("ChangingAndChangedSetter"));
             }
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
-        public event PropertyChangingEventHandler PropertyChanging;
+        public event System.ComponentModel.PropertyChangingEventHandler PropertyChanging;
     }
 
     public class PlainClass

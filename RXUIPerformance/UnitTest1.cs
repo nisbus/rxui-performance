@@ -18,13 +18,13 @@ namespace RXUIPerformance
         }
 
         int TestCount = 100000;
-        [TestMethod]
-        public void TestSettingOldRXStyle()
-        {
-            var RX = new RXClass();
-            for (int i = 0; i < TestCount; i++)
-                RX.OldSetter = i;
-        }
+        //[TestMethod]
+        //public void TestSettingOldRXStyle()
+        //{
+        //    var RX = new RXClass();
+        //    for (int i = 0; i < TestCount; i++)
+        //        RX.OldSetter = i;
+        //}
 
         [TestMethod]
         public void TestSettingNewRXStyle()
