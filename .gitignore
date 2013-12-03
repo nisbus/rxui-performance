@@ -1,0 +1,28 @@
+# files #
+###################
+*.com
+*.class
+*.exe
+*.pdb
+*.dll.config
+*.cache
+*.msi
+*.suo
+*.user
+*.Publish.xml
+*.vspscc
+*.vssscc
+*.testsettings
+*.vsp
+*.ctl
+*.gpstate
+# Directories #
+###############
+[Oo]bj/
+[Bb]in/
+TestResults/
+Debug/
+Release/
+src/Kodi.Kodiak.Client/packages/*
+_ReSharper.Kodi.Kodiak.Client/
+[Pp]ackages/*
